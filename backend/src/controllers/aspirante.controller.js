@@ -80,7 +80,7 @@ async function listar(req, res) {
     }
     if (curso) { filtros.push('c.nombre LIKE ?'); params.push(`%${curso}%`); }
 
-    // ✅ Rango de fechas en vez de YEAR()/MONTH() → usa índice idx_aspirante_created
+    //Rango de fechas en vez de YEAR()/MONTH() → usa índice idx_aspirante_created
     const periodo = construirFiltroPeriodo(anio, mes, 'a.created_at');
     if (periodo.filtro) {
       filtros.push(periodo.filtro);
@@ -102,8 +102,8 @@ async function listar(req, res) {
       JOIN aspirante_estado ae ON a.estado_id    = ae.id
       ${clausulaWhere}`;
 
-    // ✅ SQL_CALC_FOUND_ROWS: MySQL cuenta el total mientras recorre las filas
-    //    Una sola query en vez de dos queries con el mismo FROM+JOIN costoso.
+    // SQL_CALC_FOUND_ROWS: MySQL cuenta el total mientras recorre las filas
+    // Una sola query en vez de dos queries con el mismo FROM+JOIN costoso.
     const sqlListado = `
       SELECT SQL_CALC_FOUND_ROWS
              a.id, a.nombre1, a.nombre2, a.apellido1, a.apellido2, a.nombre_completo,
