@@ -29,7 +29,7 @@ async function listar(req, res) {
       clausulaWhere += ' AND (e.nombre LIKE ? OR e.nit LIKE ?)';
       params.push(`%${empresa}%`, `%${empresa}%`);
     }
-    // ✅ Rango de fechas → usa índice idx_solicitud_created
+    //  Rango de fechas → usa índice idx_solicitud_created
     const periodo = construirFiltroPeriodo(anio, mes, 's.created_at');
     if (periodo.filtro) { clausulaWhere += ' ' + periodo.filtro; params.push(...periodo.params); }
 
