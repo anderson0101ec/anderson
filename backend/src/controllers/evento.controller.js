@@ -1,8 +1,7 @@
 /**
- * Archivo: controllers/evento.controller.js  v1.0.2
+ * Archivo: controllers/evento.controller.js  
  * Responsabilidad: Lógica de negocio para eventos/clases programadas.
  * Conecta con: config/db.js (pool), utils/response.utils.js.
- * Cambios v1.0.2:
  *   - listar() acepta query param instructor_id para filtrar solo los eventos
  *     de los grupos asignados al instructor autenticado.
  *   - El filtrado ocurre en BD, no en el frontend.
