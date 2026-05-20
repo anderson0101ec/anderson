@@ -27,10 +27,10 @@ const pool = mysql.createPool({
 async function testConnection() {
   try {
     const conn = await pool.getConnection();
-    console.log('✅ Base de datos conectada');
+    console.log('Base de datos conectada');
     conn.release();
   } catch (e) {
-    console.error('❌ Error BD:', e.message);
+    console.error('Error BD:', e.message);
     process.exit(1);
   }
 }
